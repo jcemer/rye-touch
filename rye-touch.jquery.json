@@ -1,0 +1,17 @@
+{
+    "name": "rye.touch",
+    "title": "Rye Touch Events in jQuery",
+    "version": "0.0.1",
+    "author": {
+        "name": "Jean Carlo Emer",
+        "url": "http://jcemer.com"
+    },
+    "dependencies": {
+        "jquery": ">=1.7.0"
+    },
+    "files": ["lib/rye-touch.jquery.js"],
+    "description": "This touch event implementation allows plugins written to Zepto or Rye to work with jQuery",
+    "keywords": ["touch","event","tap","swipe", "doubletap"],
+    "homepage": "http://jcemer.com/rye-touch",
+    "docs": "http://jcemer.com/rye-touch"
+}
