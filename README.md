@@ -3,6 +3,6 @@ Rye Touch Events in jQuery
 
 http://jcemer.com/rye-touch
 
-This touch event implementation allows plugins written to [Zepto](http://zeptojs.com/) or [Rye](http://ryejs.com/) to work with jQuery. This gives life to Zepto Carousel and Zepto Range plugins with jQuery.
+This is a jQuery touch event implementation using `rye.Touch` and `rye.Events`, making it possible to use plugins written for Zepto or Rye, in jQuery.
 
 The full documentation can be found at [Zepto website](http://zeptojs.com/#touch).
