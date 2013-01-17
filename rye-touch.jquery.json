@@ -6,6 +6,10 @@
         "name": "Jean Carlo Emer",
         "url": "http://jcemer.com"
     },
+    "licenses": {
+        "type": "MIT",
+        "url": "https://github.com/jcemer/rye-touch/blob/master/MIT-LICENSE"
+    },
     "dependencies": {
         "jquery": ">=1.7.0"
     },
