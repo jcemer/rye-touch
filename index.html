@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rye Touch</title>
+    <link rel="stylesheet" href="http://ryejs.com/styles/main.css">
+    <style type="text/css">
+        h1 {
+            padding: 2em 0 1em 0;   
+        }
+        .intro {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rye Touch Events in jQuery</h1>
+    
+    <div class="intro">
+        <p>This touch event implementation allows plugins written to <a href="http://zeptojs.com">Zepto</a> or <a href="http://ryejs.com">Rye</a> to work with jQuery. This gives life to <a href="http://jcemer.com/zepto-carousel">Zepto Carousel</a> and <a href="http://jcemer.com/zepto-range">Zepto Range</a> plugins with jQuery.</p>
+        <p>The full documentation can be found at <a href="http://zeptojs.com/#touch">Zepto website</a>.</p>
+    </div>
+    
+    <h2>Samples</h2>
+    <div class="content">
+        <div class="touch-samples">
+            <div id="touch-sample" class="touch-sample" style="background: #cce">
+                <div class="name">All touch events</div>
+                <pre class="events"></pre>
+            </div>
+
+            <div id="touch-sample-scrollable" class="touch-sample" style="background: #cec">
+                <div class="name">Allow scrolling</div>
+                <pre class="events"></pre>
+            </div>
+
+            <div id="touch-sample-single" class="touch-sample" style="background: #ecc">
+                <div class="name">Single tap only</div>
+                <pre class="events"></pre>
+            </div>
+        </div>
+
+        <h2>All touch events</h2>
+        <ul>
+            <li>Container that captures all touch events.</li>
+            <li>Prevents default on touchmove, disabling scrolling.</li>
+            <li>Captures swipes in all directions.</li>
+            <li>Captures tap, singleTap (after delay), doubleTap, longTap</li>
+        </ul>
+
+        <h2>Allow scrolling</h2>
+        <ul>
+            <li>Container that allows scrolling while capturing all events except swipes in the direction of scroll</li>
+            <li>Prevents default on touchmove, disabling scrolling.</li>
+            <li>Captures swipes in all directions.</li>
+            <li>Captures tap, singleTap (after delay), doubleTap, longTap</li>
+        </ul>
+
+        <h2>Single tap only</h2>
+        <ul>
+            <li>Container that allows scrolling and captures only simple, single taps. eg: a button or a tappable list item</li>
+            <li>Cancels touch after tap, disabling other touch events (singleTap, doubleTap)</li>
+            <li>Captures tap</li>
+        </ul>
+    </div>
+    
+    <div class="navigation">
+        <div class="content">
+            <a href="/" class="home">Rye Touch Events</a>
+            <nav>
+                <ul>
+                    <li><a href="http://ryejs.com">Rye.js</a></li>
+                    <li><a href="http://jcemer.com/zepto-carousel">Zepto Carousel</a></li>
+                    <li><a href="http://jcemer.com/zepto-range">Zepto Range</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <footer>Loosely based on <a href="http://zeptojs.com">Zepto</a> and <a href="http://ender.jit.su">Ender</a>.</footer>
+    
+    <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+    <script src="lib/rye-touch.js"></script>
+    <script>
+        (function($){
+            function listen_to (selector) {
+                var element = $(selector)
+                  , events  = element.find('.events')
+                  , list    = Array.apply(null, new Array(5))
+
+                ;['tap', 'doubletap', 'swipe', 'swipeleft', 'swiperight', 'swipeup', 'swipedown', 'longtap', 'singletap'].forEach(function(type){
+                    element.on(type, function(){
+                        list.push(type)
+                        events.text(list.join("\n"))
+                        list.shift()
+                    })
+                })
+            }
+
+            ['#touch-sample', '#touch-sample-scrollable', '#touch-sample-single'].map(listen_to)
+
+            $('#touch-sample').on('touchmove', function (event) {
+                event.preventDefault()
+            })
+
+            $('#touch-sample-single').on('tap', function (event) {
+                event.cancelTouch()
+            })   
+        })(jQuery)
+    </script>
+</body>
+</html>
