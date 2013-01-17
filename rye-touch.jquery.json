@@ -15,7 +15,14 @@
     },
     "files": ["lib/rye-touch.jquery.js"],
     "description": "This touch event implementation allows plugins written to Zepto or Rye to work with jQuery",
-    "keywords": ["touch","event","tap","swipe", "doubletap"],
-    "homepage": "http://jcemer.com/rye-touch",
-    "docs": "http://jcemer.com/rye-touch"
+    "keywords": [
+        "touch",
+        "event",
+        "tap",
+        "swipe",
+        "doubletap"
+    ],
+    "homepage": "https://github.com/jcemer/rye-touch",
+    "docs": "http://jcemer.com/rye-touch",
+    "demo": "http://jcemer.com/rye-touch"
 }
